@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const ExpressError = require('./expressError');
+const ExpressError = require("./expressError");
 
 // 404 handler
 app.use(function (req, res, next) {
@@ -16,12 +16,9 @@ app.use(function (err, req, res, next) {
   return res.status(status).json({
     error: {
       message: err.message,
-      status: status
-    }
+      status: status,
+    },
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000")
-});
-
+module.exports = app;
